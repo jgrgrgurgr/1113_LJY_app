@@ -23,10 +23,26 @@ def process_csv_to_html(file_path):
     else:
         return "연도 열이 존재하지 않습니다."
 
-    df.fillna(0, inplace=True)  # 결측치를 0으로 대체
+    # 도로 종류별로 그룹화하여 합계 계산
+    grouped_df = df.groupby(['도로종류', '연도']).sum().reset_index()
+
+    # 연도 기준으로 오름차순 정렬
+    grouped_df.sort_values(by=['도로종류', '연도'], ascending=True, inplace=True)
+
+    # 도로종류별로 2개씩 묶기
+    grouped_df['도로종류'] = grouped_df['도로종류'].astype(str)
+
+    # 새로운 데이터프레임 생성
+    combined_rows = []
+    for road_type in grouped_df['도로종류'].unique():
+        road_data = grouped_df[grouped_df['도로종류'] == road_type]
+        if len(road_data) == 2:
+            combined_rows.append(road_data)
+
+    combined_df = pd.concat(combined_rows).reset_index(drop=True)
 
     # HTML 테이블 생성
-    html_table = df.to_html(index=False, escape=False, justify="center", border=0)
+    html_table = combined_df.to_html(index=False, escape=False, justify="center", border=0)
 
     styled_html_table = f"""
     <style>
