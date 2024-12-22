@@ -83,7 +83,7 @@ async def show_weather():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>졸음운전 방지</title>
+        <title>졸음운전 예방 캠페인 by 1113 이주영</title>
         <style>
             body {{
                 background-color: #f2f2f2;
@@ -139,29 +139,31 @@ async def show_weather():
     </head>
     <body>
         <header>
-            <h1>졸음운전, 예방이 먼저.</h1>
-            <p>졸음운전 예방의 중요성에 대해 알아봅시다.</p>
+            <h1>졸음운전, 이렇게 알고 예방하자.</h1>
+            <p>졸음운전이 왜 위험한지, 그리고 어떻게 하면 대처할 수 있는지에 대해 알아봅시다.</p>
         </header>
 
         <main>
             <div class="tip-card">
-                <h2>졸음운전 방지를 위한 정보.</h2>
+                <h2>졸음운전의 정의.</h2>
+                    <p>도로교통법 제45조에 따르면, (과로한 때 등의 운전 금지) 자동차등의 운전자는 제44조에 따른 술에 취한 상태 외에 과로, 질병 또는 약물(마약, 대마 및 향정신성의약품과 그 밖에 행정자치부령으로 정하는 것이라 합니다.</p>
+                <h3>졸음운전 관련 매체.</h3>
                     <p><a href="https://www.korea.kr/multi/visualNewsView.do?newsId=148846669" target="_blank">졸음운전 예방법</a></p>
                     <p><a href="https://www.youtube.com/watch?v=SVfls3GBPhY" target="_blank">졸음운전의 위험성(동영상)</a></p>
             </div>
 
             <div class="tip-card">
-                <h2>졸음운전 교통사고 현황</h2>
+                <h2>졸음운전 교통사고 현황.</h2>
                     {table_html}
             </div>
 
             <div class="tip-card">
-                <h2>졸음 체크하기</h2>
-                <button onclick="alert('경고: 졸음이 느껴지면 즉시 정차하세요!')">알림 상태 확인</button>
+                <h2>졸음운전을 예방하는 법.</h2>
+                <button onclick="alert('충분한 수면과 휴식을 취하거나, 동승자와의 대화, 창문 개방과 같은 방법으로 예방할 수 있다.')">정답 공개</button>
             </div>
 
             <div class="tip-card">
-                <h2>자원 링크</h2>
+                <h2>관련 자료 참조</h2>
                 <p><a href="https://www.police.go.kr/index.do" target="_blank">경찰청</a></p>
             </div>
         </main>
