@@ -72,7 +72,7 @@ def process_csv_to_html(file_path):
     return styled_html_table
 
 @app.get("/", response_class=HTMLResponse)
-async def show_weather():
+async def drowsy_driving():
     # CSV 파일을 가공하여 HTML로 변환
     table_html = process_csv_to_html(file_path)
 
@@ -175,7 +175,3 @@ async def show_weather():
     </html>
     """
     return HTMLResponse(content=html_content)
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
