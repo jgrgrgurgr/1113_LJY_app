@@ -17,7 +17,12 @@ def process_csv_to_html(file_path):
     # CSV 파일 읽기
     df = pd.read_csv(file_path, encoding=encoding)
 
-    # 데이터 가공 (예: 필요한 열만 선택)
+    # '연도' 열이 있는지 확인하고 필터링
+    if '연도' in df.columns:
+        df = df[(df['연도'] == 2017) | (df['연도'] == 2022)]
+    else:
+        return "연도 열이 존재하지 않습니다."
+
     df.fillna(0, inplace=True)  # 결측치를 0으로 대체
 
     # HTML 테이블 생성
